@@ -58,20 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let tableHtml = '<table><thead><tr><th>Line</th><th>Length (m)</th><th>Bearing (WCB °)</th></tr></thead><tbody>';
-        const defaultData = [
-            { len: 100.2, brg: 45.5 }, { len: 120.5, brg: 150.0 },
-            { len: 89.8, brg: 220.25 }, { len: 110.0, brg: 310.75 }
-        ];
-
+        
+        // The defaultData array has been removed.
+        // The loop now generates empty input fields.
         for (let i = 0; i < count; i++) {
             const lineLabel = `${String.fromCharCode(65 + i)}-${String.fromCharCode(65 + i + 1)}`;
-            const len = defaultData[i] ? defaultData[i].len : '';
-            const brg = defaultData[i] ? defaultData[i].brg : '';
             tableHtml += `
                 <tr>
                     <td>${lineLabel}</td>
-                    <td><input type="number" class="length-input" value="${len}" step="0.01" required></td>
-                    <td><input type="number" class="bearing-input" value="${brg}" step="0.01" required></td>
+                    <td><input type="number" class="length-input" value="" step="0.01" required></td>
+                    <td><input type="number" class="bearing-input" value="" step="0.01" required></td>
                 </tr>
             `;
         }
